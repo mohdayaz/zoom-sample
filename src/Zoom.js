@@ -17,12 +17,13 @@ const Zoom = (props) => {
   var apiKey = 'vupeYDpqRgauFJ1dIFP4xQ'
   var apiSecret = "FcrTFnYaivjSa0GeZASgHBaeTj9nBi01vy0q"
   var meetingNumber = props.mNumber
-  var leaveUrl = '/'
+  var leaveUrl = 'localhost:3000/'
   var userName = 'WebSDK'
   var userEmail = 'mohd.ayaz@navialifecare.com'
   var passWord = props.password
   var signature = ''
   generateSignature(apiKey, apiSecret, meetingNumber, 0).then(res => {
+    console.log("signature", res)
     signature = res;
   })
 
