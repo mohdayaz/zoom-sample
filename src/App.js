@@ -1,25 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import React , {Component, useState} from "react"
+import Zoom from "./Zoom"
+import "./App.css"
 
-function App() {
+const App = () => {
+
+  const [launch, setLaunch] = useState(false)
+  const [number, setNumber] = useState("")
+  const [password, setPassword] = useState("false")
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <h2 >Zoom here</h2>
+      <input onChange={e => setNumber(e.target.value)}/>
+      <input onChange={e => setPassword(e.target.value)}/>
+      <button onClick={() => setLaunch(true)}>Click to join</button>
+      {launch && <Zoom mNumber={parseInt(number)} password={password}/>}
     </div>
-  );
+  )
+
 }
 
-export default App;
+export default App
